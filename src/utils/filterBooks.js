@@ -1,8 +1,8 @@
-const filterBooks = ( data, searchValue ) => {
+const filterBooks = ( books, searchValue ) => {
 
-    if ( !searchValue ) return data;
+    if ( !searchValue ) return books;
 
-    const books = data?.filter( b => {
+    const filteredBooks = books?.filter( b => {
         let match = false;
         if ( b.author.toLowerCase().includes( searchValue.toLowerCase() )) match = true;
         if ( b.title.toLowerCase().includes( searchValue.toLowerCase() )) match = true;
@@ -13,7 +13,7 @@ const filterBooks = ( data, searchValue ) => {
         return match
     });
 
-    return books;
+    return filteredBooks;
 };
 
 export default filterBooks;

@@ -1,4 +1,7 @@
+import { FaRegLaughSquint } from 'react-icons/fa';
+
 const getGenreIcon = ( genre ) => {
+
     let icon;
     switch ( genre ) {
         case 'fantasy':
@@ -14,7 +17,7 @@ const getGenreIcon = ( genre ) => {
                 icon = '👩'
                 break;
         case 'comedy':
-                icon = '😂'
+                icon = <FaRegLaughSquint />;
                 break;
         case 'thriller':
                 icon = '🕵️'
