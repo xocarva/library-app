@@ -5,6 +5,7 @@ import { IoMdExit } from 'react-icons/io';
 import { getGenreIcon } from '../../utils';
 import './BooksGridItem.css';
 import { useState } from 'react';
+import { validateAuthor, validateIsbn, validatePublisher, validateRelease, validateTitle } from '../../utils/validateData';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -28,7 +29,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
     const [ bookRelease, setBookRelease ] = useState('');
     const [ bookIsbn, setBookIsbn ] = useState('');
 
-
+    const [ error, setError]  = useState('');
 
     const resetValues = () => {
         setBookTitle('');
@@ -39,10 +40,96 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
         setBookIsbn('');
     };
 
+    const validateData = () => {
+        if( bookTitle && !validateTitle( bookTitle ) ) {
+            setError( 'Title must have between 1 and 40 letters' );
+            document.getElementById( 'edit-title' ).focus();
+            return false;
+        }
+
+        if( bookAuthor && !validateAuthor( bookAuthor ) ) {
+            setError( 'Author must have between 1 and 40 letters' );
+            document.getElementById( 'edit-author' ).focus();
+            return false;
+        }
+
+        if( bookPublisher && !validatePublisher( bookPublisher ) ) {
+            setError( 'Publisher must have between 2 and 40 letters' );
+            document.getElementById( 'edit-publisher' ).focus();
+            return false;
+        }
+
+        if( bookRelease && !validateRelease( bookRelease ) ) {
+            setError( `Release year must be between 1900 and ${ new Date().getFullYear() }` );
+            document.getElementById( 'edit-release' ).focus();
+            return false;
+        }
+
+        if( bookIsbn && !validateIsbn( bookIsbn ) ) {
+            setError( 'Invalid ISBN format' );
+            document.getElementById( 'edit-isbn' ).focus();
+            return false;
+        }
+
+        setError( '' );
+        return true;
+    };
+
     const handleSubmit = async ( e ) => {
+
         e.preventDefault();
-        resetValues();
-        setEdit( false );
+
+        if( !validateData() ) return;
+
+        if( bookTitle || bookAuthor || bookGenre || bookPublisher || bookRelease || bookIsbn ) {
+
+            try {
+
+                let body = {};
+                if( bookTitle ) body.title = bookTitle;
+                if( bookAuthor ) body.title = bookAuthor;
+                if( bookGenre ) body.genre = bookGenre;
+                if( bookPublisher ) body.publisher = bookPublisher;
+                if( bookRelease ) body.releaseYear = bookRelease;
+                if( bookIsbn ) body.isbn = bookIsbn;
+
+                const res = await fetch( API_URL + `/books/${ id }`, {
+                    method: 'PATCH',
+                    headers: {
+                        Accept:'application/json',
+                            'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify( body ),
+                });
+
+                if( res.ok ) {
+                    const { data:book } = await res.json();
+
+                    setTitleHolder( book.title );
+                    setAuthorHolder( book.author );
+                    setGenreHolder( book.genre );
+                    setPublisherHolder( book.publisher );
+                    setReleaseHolder( book.releaseYear );
+                    setIsbnHolder( book.isbn );
+
+                    setBooks( currentList => {
+                        return currentList.map( b => {
+                            return b.id === id ? book : b;
+                        });
+                    });
+
+                    resetValues();
+                    setEdit( false );
+
+                } else {
+                    const { error } = await res.json();
+                    setError( error );
+                }
+            } catch ( error ) {
+                setError( error );
+            }
+        }
+
     };
 
     const handleReset = () => resetValues();
@@ -52,20 +139,25 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
         setEdit( false );
     };
 
-
     const handleDelete = async () => {
 
         if ( window.confirm('Delete book?') ) {
-            const res = await fetch(API_URL + '/books/' + id, {
-                method: 'DELETE',
-                })
-                if ( res.ok ) {
-                        setBooks( currentList => {
-                                return currentList.filter( book => book.id !== id );
-                        });
-                };
+            try {
+                const res = await fetch(API_URL + '/books/' + id, {
+                    method: 'DELETE',
+                    })
+                    if ( res.ok ) {
+                            setBooks( currentList => {
+                                    return currentList.filter( book => book.id !== id );
+                            });
+                    } else {
+                        const { error } = res.json();
+                        alert( error );
+                    }
+            } catch ( error ) {
+                alert( error );
+            }
         }
-
     };
 
     return (
@@ -84,19 +176,53 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
                         <span className='published' title='published'>Published by { publisher } on { releaseYear }</span>
                         <span className='isbn' title='isbn'>ISBN: { isbn }</span>
                     </>
-                    :   <form className='edit-book-form' onSubmit={ handleSubmit }>
-                            <input type='text' placeholder={ titleHolder } value={ bookTitle } onChange={ e => setBookTitle( e.target.value ) }></input>
-                            <input type='text' placeholder={ authorHolder } value={ bookAuthor } onChange={ e => setBookAuthor( e.target.value )}></input>
-                            <input type='text' placeholder={ genreHolder } value={ bookGenre } onChange={ e => setBookGenre( e.target.value )}></input>
-                            <input type='text' placeholder={ publisherHolder } value={ bookPublisher } onChange={ e => setBookPublisher( e.target.value )}></input>
-                            <input type='text' placeholder={ releaseHolder } value={ bookRelease } onChange={ e => setBookRelease( e.target.value )}></input>
-                            <input type='text' placeholder={ isbnHolder } value={ bookIsbn } onChange={ e => setBookIsbn( e.target.value )}></input>
-                            <div className='edit-buttons'>
-                                <button type='submit' className='save-button' title='edit'><FaSave /></button>
-                                <button type='reset' onClick={ handleReset }><GrPowerReset /></button>
-                                <button onClick={ handleBack }><IoMdExit /></button>
-                            </div>
-                        </form>
+                    :   <>
+                            <form className='edit-book-form' onSubmit={ handleSubmit }>
+                                <input id='edit-title' type='text' placeholder={ titleHolder } value={ bookTitle }
+                                    onChange={ e => {
+                                        setBookTitle( e.target.value );
+                                        setError('');
+                                    }}>
+                                </input>
+                                <input id='edit-author' type='text' placeholder={ authorHolder } value={ bookAuthor }
+                                    onChange={ e => {
+                                        setBookAuthor( e.target.value );
+                                        setError('');
+                                    }}>
+                                </input>
+                                <input id='edit-genre' type='text' placeholder={ genreHolder } value={ bookGenre }
+                                    onChange={ e => {
+                                        setBookGenre( e.target.value );
+                                        setError('');
+                                    }}>
+                                </input>
+                                <input id='edit-publisher' type='text' placeholder={ publisherHolder } value={ bookPublisher }
+                                    onChange={ e => {
+                                        setBookPublisher( e.target.value );
+                                        setError('');
+                                    }}>
+                                </input>
+                                <input id='edit-release' type='number' placeholder={ releaseHolder } value={ bookRelease }
+                                    onChange={ e => {
+                                        setBookRelease( e.target.value );
+                                        setError('');
+                                    }}>
+                                </input>
+                                <input id='edit-isbn' type='text' placeholder={ isbnHolder } value={ bookIsbn }
+                                    onChange={ e => {
+                                        setBookIsbn( e.target.value );
+                                        setError('');
+                                    }}>
+                                </input>
+                                <div className='edit-buttons'>
+                                    <button type='submit' className='save-button' title='edit'><FaSave /></button>
+                                    <button type='reset' onClick={ handleReset }><GrPowerReset /></button>
+                                    <button onClick={ handleBack }><IoMdExit /></button>
+                                </div>
+                            </form>
+                            { error && <span>{ error }</span> }
+                        </>
+
                 }
 
                 <div className='card-buttons'>
@@ -108,7 +234,6 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
                     }
                 </div>
             </section>
-
           </article>
     );
 };
