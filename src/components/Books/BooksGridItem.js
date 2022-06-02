@@ -69,7 +69,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
     };
 
     return (
-          <article className='book-card'>
+          <article className='book-card' tabIndex='0'>
             <section className={ `cover ${ genre }`}>
                 <span className='genre' title={ genre }>{ getGenreIcon( genre ) }</span>
                 <h2 className={ `book-title` } title='book title'>{ title } </h2>
