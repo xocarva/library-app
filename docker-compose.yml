@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  library-app:
+    container_name: library-app
+    build: .
+    env_file: ./.env
+    ports:
+      - '$PORT:80'
