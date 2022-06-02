@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   library-app:
-    container_name: library-app
+    container_name: library
     build: .
     env_file: ./.env
     ports:
