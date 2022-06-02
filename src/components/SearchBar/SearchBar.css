@@ -1,0 +1,26 @@
+.search-box-container {
+    margin: 1rem auto;
+    width: 80vw;
+    max-width: 900px;
+    padding: 10px 10px 10px 15px;
+    border-radius: 5px;
+    background-color: rgba(211, 211, 211, 0.719);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-box-container .search-box {
+    flex-grow: 1;
+    border: none;
+    background-color: rgba(211, 211, 211, 0);
+    color: var(--font-color);;
+}
+
+.search-box-container .search-box:focus {
+    outline: none;
+}
+
+.search-box-container .search-icon {
+    min-width: 5%;
+}

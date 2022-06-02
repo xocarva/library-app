@@ -1,0 +1,9 @@
+.footer {
+    flex-grow: 0;
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--background-light-color);
+    color: var(--title-color);
+    font-weight: bold;
+}
+

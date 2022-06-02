@@ -1,0 +1,19 @@
+.main-header {
+    width: 100%;
+    background-color: var(--background-light-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 0;
+}
+
+.main-header .main-header-title {
+    font-size: calc(2.5vw + 2.5vh + .6vmin);
+    font-weight: bold;
+}
+
+.main-header .main-header-title a {
+    color: var(--title-color);
+}
+
+

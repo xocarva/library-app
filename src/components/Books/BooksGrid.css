@@ -1,0 +1,25 @@
+.main .book-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 80vw;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.main .type-something {
+    width: 80vw;
+    max-width: 700px;
+    margin: 3rem auto;
+    font-size: calc(2vw + 2vh + .4vmin);
+    color: #515e7e;
+}
+
+.main .no-matches {
+    width: 80vw;
+    max-width: 900px;
+    margin: 5rem auto;
+    font-size: 2rem;
+    text-align: center;
+    color: #515e7e;
+}
