@@ -32,7 +32,6 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
     const resetValues = () => {
         setBookTitle('');
         setBookAuthor('');
-        setBookGenre('');
         setBookPublisher('');
         setBookRelease('');
         setBookIsbn('');
