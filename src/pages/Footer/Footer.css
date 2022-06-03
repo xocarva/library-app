@@ -25,4 +25,5 @@
 .footer .links a {
     color: var(--title-color);
     font-size: 1.5rem;
+    margin-left: 0.5rem;
 }
