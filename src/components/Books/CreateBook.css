@@ -42,6 +42,14 @@
     max-width: 90%;
 }
 
+.new-book-form select {
+    padding: 0.2rem;
+    width: 90%;
+    background-color: white;
+    color: gray;
+    border: 1px solid var(--button-color);
+}
+
 .new-book-form .create-buttons {
     display: flex;
     gap: 0.5rem;

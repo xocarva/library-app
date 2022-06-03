@@ -15,7 +15,6 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
 
     const [ titleHolder, setTitleHolder ] = useState( title );
     const [ authorHolder, setAuthorHolder ] = useState( author );
-    const [ genreHolder, setGenreHolder ] = useState( genre );
     const [ publisherHolder, setPublisherHolder ] = useState( publisher );
     const [ releaseHolder, setReleaseHolder ] = useState( releaseYear );
     const [ isbnHolder, setIsbnHolder ] = useState( isbn );
@@ -23,7 +22,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
 
     const [ bookTitle, setBookTitle ] = useState('');
     const [ bookAuthor, setBookAuthor ] = useState('');
-    const [ bookGenre, setBookGenre ] = useState('');
+    const [ bookGenre, setBookGenre ] = useState( genre );
     const [ bookPublisher, setBookPublisher ] = useState('');
     const [ bookRelease, setBookRelease ] = useState('');
     const [ bookIsbn, setBookIsbn ] = useState('');
@@ -107,7 +106,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
 
                     setTitleHolder( book.title );
                     setAuthorHolder( book.author );
-                    setGenreHolder( book.genre );
+                    setBookGenre( book.genre );
                     setPublisherHolder( book.publisher );
                     setReleaseHolder( book.releaseYear );
                     setIsbnHolder( book.isbn );
@@ -190,12 +189,17 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
                                         setError('');
                                     }}>
                                 </input>
-                                <input id='edit-genre' type='text' placeholder={ genreHolder } value={ bookGenre }
-                                    onChange={ e => {
-                                        setBookGenre( e.target.value );
-                                        setError('');
-                                    }}>
-                                </input>
+                                <select name='genre' value={ bookGenre } onChange={ e => setBookGenre( e.target.value ) }>
+                                    <option value='fantasy'>fantasy</option>
+                                    <option value='sci-fi'>sci-fi</option>
+                                    <option value='historical'>historical</option>
+                                    <option value='romance'>romance</option>
+                                    <option value='biography'>biography</option>
+                                    <option value='comedy'>comedy</option>
+                                    <option value='thriller'>thriller</option>
+                                    <option value='essay'>essay</option>
+                                    <option value='others'>others</option>
+                                </select>
                                 <input id='edit-publisher' type='text' placeholder={ publisherHolder } value={ bookPublisher }
                                     onChange={ e => {
                                         setBookPublisher( e.target.value );

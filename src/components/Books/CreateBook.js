@@ -13,11 +13,12 @@ const CreateBook = ({ setBooks }) => {
     const [ edit, setEdit ] = useState( false );
     const [ title, setTitle ] = useState('');
     const [ author, setAuthor ] = useState('');
-    const [ genre, setGenre ] = useState('');
+    const [ genre, setGenre ] = useState('fantasy');
     const [ publisher, setPublisher ] = useState('');
     const [ release, setRelease ] = useState('');
     const [ isbn, setIsbn ] = useState('');
     const [ error, setError ] = useState('');
+
 
     const validateData = () => {
         if( title && !validateTitle( title ) ) {
@@ -57,7 +58,7 @@ const CreateBook = ({ setBooks }) => {
     const resetValues = () => {
         setTitle('');
         setAuthor('');
-        setGenre('');
+        setGenre('fantasy');
         setPublisher('');
         setRelease('');
         setIsbn('');
@@ -131,12 +132,17 @@ const CreateBook = ({ setBooks }) => {
                                 setError('');
                             }}>
                         </input>
-                        <input id='genre' type='text' placeholder='genre' value={ genre }
-                            onChange={ e => {
-                                setGenre( e.target.value );
-                                setError('');
-                            }}>
-                        </input>
+                        <select name='genre' value={ genre } onChange={ e => setGenre( e.target.value ) }>
+                            <option value='fantasy'>fantasy</option>
+                            <option value='sci-fi'>sci-fi</option>
+                            <option value='historical'>historical</option>
+                            <option value='romance'>romance</option>
+                            <option value='biography'>biography</option>
+                            <option value='comedy'>comedy</option>
+                            <option value='thriller'>thriller</option>
+                            <option value='essay'>essay</option>
+                            <option value='others'>others</option>
+                        </select>
                         <input id='publisher' type='text' placeholder='publisher' value={ publisher }
                             onChange={ e => {
                                 setPublisher( e.target.value );

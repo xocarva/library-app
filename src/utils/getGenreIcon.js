@@ -11,6 +11,9 @@ const getGenreIcon = ( genre ) => {
         case 'historical':
                 icon = '📜'
                 break;
+        case 'romance':
+                icon = '❤️‍🔥'
+                break;
         case 'biography':
                 icon = '👩'
                 break;

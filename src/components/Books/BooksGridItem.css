@@ -115,6 +115,14 @@
     max-width: 85%;
 }
 
+.edit-book-form select {
+    padding: 0.2rem;
+    width: 85%;
+    background-color: white;
+    color: gray;
+    border: 1px solid var(--button-color);
+}
+
 .edit-book-form .edit-buttons {
     display: flex;
     gap: 0.5rem;
@@ -155,6 +163,10 @@
 
 .historical {
     background-color: var(--historical-color);;
+}
+
+.romance {
+    background-color: var(--romance-color);;
 }
 
 .biography {

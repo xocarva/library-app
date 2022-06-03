@@ -33,7 +33,7 @@ export const validatePublisher = ( publisher ) => {
 
 export const validateRelease = ( releaseYear ) => {
     const currentYear = new Date().getFullYear();
-    if( releaseYear?.length < 1900 || releaseYear?.length > currentYear ) {
+    if( releaseYear < 1900 || releaseYear > currentYear ) {
         return false;
 
     } else return true;
