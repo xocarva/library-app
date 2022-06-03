@@ -1,6 +1,6 @@
 .main-header {
     width: 100%;
-    background-color: var(--background-light-color);
+    background-color: var(--dark-background-color);
     display: flex;
     align-items: center;
     justify-content: space-around;

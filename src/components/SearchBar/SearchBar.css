@@ -14,7 +14,8 @@
     flex-grow: 1;
     border: none;
     background-color: rgba(211, 211, 211, 0);
-    color: var(--font-color);;
+    color: var(--dark-background-color);
+    font-weight: bold;
 }
 
 .search-box-container .search-box:focus {

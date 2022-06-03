@@ -6,6 +6,7 @@
     max-width: 1400px;
     margin: 2rem auto;
     justify-content: center;
+    flex-grow: 1;
 }
 
 .main .type-something {
@@ -22,5 +23,5 @@
     margin: 5rem auto;
     font-size: 2rem;
     text-align: center;
-    color: #515e7e;
+    color: var(--title-color);
 }

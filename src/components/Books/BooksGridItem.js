@@ -3,12 +3,11 @@ import { AiFillDelete } from 'react-icons/ai';
 import { GrPowerReset } from 'react-icons/gr';
 import { IoMdExit } from 'react-icons/io';
 import { getGenreIcon } from '../../utils';
-import './BooksGridItem.css';
 import { useState } from 'react';
 import { validateAuthor, validateIsbn, validatePublisher, validateRelease, validateTitle } from '../../utils/validateData';
+import './BooksGridItem.css';
 
 const API_URL = process.env.REACT_APP_API_URL;
-
 
 const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn, setBooks }) => {
 
@@ -38,6 +37,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
         setBookPublisher('');
         setBookRelease('');
         setBookIsbn('');
+        setError( '' );
     };
 
     const validateData = () => {
@@ -163,7 +163,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
     return (
           <article className='book-card' tabIndex='0'>
             <section className={ `cover ${ genre }`}>
-                <span className='genre' title={ genre }>{ getGenreIcon( genre ) }</span>
+                <span className='genre-tag' title={ genre }>{ getGenreIcon( genre ) }</span>
                 <h2 className={ `book-title` } title='book title'>{ title } </h2>
                 <span className='author' title='author'>{ author }</span>
             </section>
@@ -173,7 +173,7 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
                         <span className={ `book-title` } title='book title'>{ title }</span>
                         <span className='author' title='author'>Author: { author }</span>
                         <span className='genre' title='genre'>Genre: { genre }</span>
-                        <span className='published' title='published'>Published by { publisher } on { releaseYear }</span>
+                        <span className='published' title='published'>Published by { publisher } in { releaseYear }</span>
                         <span className='isbn' title='isbn'>ISBN: { isbn }</span>
                     </>
                     :   <>
@@ -215,12 +215,12 @@ const BooksGridItem = ({ id, title, author, genre, publisher, releaseYear, isbn,
                                     }}>
                                 </input>
                                 <div className='edit-buttons'>
-                                    <button type='submit' className='save-button' title='edit'><FaSave /></button>
-                                    <button type='reset' onClick={ handleReset }><GrPowerReset /></button>
-                                    <button onClick={ handleBack }><IoMdExit /></button>
+                                    <button type='submit' className='save-button' title='save'><FaSave /></button>
+                                    <button type='reset' title='reset' onClick={ handleReset }><GrPowerReset /></button>
+                                    <button title='back' onClick={ handleBack }><IoMdExit /></button>
                                 </div>
                             </form>
-                            { error && <span>{ error }</span> }
+                            { error && <span className='edit-book-error'>{ error }</span> }
                         </>
 
                 }

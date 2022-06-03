@@ -1,0 +1,70 @@
+.new-book{
+    position: relative;
+    margin: 20px 0;
+    width: 15rem;
+    height: 20rem;
+    border-radius: 5px;
+    background: whitesmoke;
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    box-shadow: 5px 5px 5px rgba(71, 70, 70, 0.618);
+    transition: 1s;
+    border: 1px solid rgb(85, 49, 8);
+    border-left: 10px solid rgb(85, 49, 8);
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.new-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.new-book-button{
+    font-size: 5rem;
+    color: var(--button-color);
+    cursor: pointer;
+}
+
+.new-book-button:hover{
+    font-size: 5.5rem;
+    color: var(--button-hover-color);
+    cursor: pointer;
+}
+
+.new-book-form input {
+    padding: 0.2rem;
+    max-width: 90%;
+}
+
+.new-book-form .create-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+.new-book-error{
+    color: rgb(129, 28, 28);
+    font-style: italic;
+    text-align: center;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+}
+
+.new-book .create-buttons button {
+    background-color:var(--button-color);
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+}
+
+.new-book .create-buttons button:hover {
+    background-color:var(--button-hover-color);
+}

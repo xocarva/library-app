@@ -2,8 +2,27 @@
     flex-grow: 0;
     text-align: center;
     padding: 1rem;
-    background-color: var(--background-light-color);
+    background-color: var(--dark-background-color);
     color: var(--title-color);
     font-weight: bold;
 }
 
+.footer {
+    background-color: var(--dark-background-color);
+    color: var(--title-color);
+    padding: 1.5rem;
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer span a {
+    color: var(--title-color);
+}
+
+.footer .links a {
+    color: var(--title-color);
+    font-size: 1.5rem;
+}

@@ -1,8 +1,8 @@
 export const validateTitle = ( title ) => {
 
-    const titleRegex = /^[A-Za-zaáÁéÉíÍóÓúÚ\u00f1\u00d1\s]+$/;
+    const titleRegex = /^[0-9A-Za-zaáÁéÉíÍóÓúÚ\u00f1\u00d1\s]+$/;
 
-    if( title?.length < 1 || title?.length >= 40 || !titleRegex.test( title ) ) {
+    if( title?.length < 1 || title?.length >= 50 || !titleRegex.test( title ) ) {
         return false;
 
     } else return true;
@@ -13,7 +13,7 @@ export const validateAuthor = ( author ) => {
 
     const authorRegex = /^[A-Za-zaáÁéÉíÍóÓúÚ\u00f1\u00d1\s]+$/;
 
-    if( author?.length < 2 || author?.length >= 40 || !authorRegex.test( author ) ) {
+    if( author?.length < 2 || author?.length >= 50 || !authorRegex.test( author ) ) {
         return false;
 
     } else return true;
@@ -24,7 +24,7 @@ export const validatePublisher = ( publisher ) => {
 
     const publisherRegex = /^[A-Za-zaáÁéÉíÍóÓúÚ\u00f1\u00d1\s]+$/;
 
-    if( publisher?.length < 2 || publisher?.length >= 40 || !publisherRegex.test( publisher ) ) {
+    if( publisher?.length < 2 || publisher?.length >= 50 || !publisherRegex.test( publisher ) ) {
         return false;
 
     } else return true;

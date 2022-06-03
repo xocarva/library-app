@@ -1,18 +1,22 @@
 @import './styles//normalize.css';
 
 :root {
-  --title-color: #D7C49E;
-  --font-color: #343148;
-  --background-light-color: #343148;
-  --tag-color:#9f57c0;
-  --fantasy-color:#c4aed1;
-  --sci-fi-color:#99c0e9;
-  --historical-color:#c9ce82;
-  --biography-color:#ebb37f;
-  --comedy-color:#f1839e;
-  --thriller-color:#a9a9c5;
-  --essay-color:#7ed8d8;
-  --others-color:#b8aaa4;
+  --title-color: #F9EBDE;
+  --dark-background-color: #815854;
+  --light-background-color: #ad775f;
+  --cover-text-color:rgb(53, 21, 6);
+  --tag-color:#697e6b;
+  --button-color:#697e6b;
+  --button-hover-color:#3b633f;
+  --button-text-color: rgb(56, 29, 5);
+  --fantasy-color:#ccd5ae;
+  --sci-fi-color:#dbe1bc;
+  --historical-color:#e9edc9;
+  --biography-color:#fefae0;
+  --comedy-color:#faedcd;
+  --thriller-color:#e7c8a0;
+  --essay-color:#deb68a;
+  --others-color:#d4a373;
 }
 
 * {
@@ -24,4 +28,14 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
