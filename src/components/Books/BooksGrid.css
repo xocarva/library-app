@@ -23,5 +23,5 @@
     margin: 5rem auto;
     font-size: 2rem;
     text-align: center;
-    color: var(--title-color);
+    color: var(--search-bar-bg-color);
 }

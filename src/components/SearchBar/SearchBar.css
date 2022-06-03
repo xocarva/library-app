@@ -4,7 +4,7 @@
     max-width: 900px;
     padding: 10px 10px 10px 15px;
     border-radius: 5px;
-    background-color: rgba(211, 211, 211, 0.719);
+    background-color: var(--search-bar-bg-color);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -14,7 +14,7 @@
     flex-grow: 1;
     border: none;
     background-color: rgba(211, 211, 211, 0);
-    color: var(--dark-background-color);
+    color: var(--search-bar-font-color);
     font-weight: bold;
 }
 

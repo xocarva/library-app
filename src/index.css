@@ -1,10 +1,12 @@
 @import './styles//normalize.css';
 
 :root {
-  --title-color: #F9EBDE;
-  --dark-background-color: #815854;
-  --light-background-color: #ad775f;
+  --title-color: #D7C49E;
+  --dark-background-color: #343148;
+  --light-background-color: #c9beb9;
   --cover-text-color:rgb(53, 21, 6);
+  --search-bar-font-color: rgba(255, 255, 255, 0.719);
+  --search-bar-bg-color: #494750;
   --tag-color:#697e6b;
   --button-color:#697e6b;
   --button-hover-color:#3b633f;
