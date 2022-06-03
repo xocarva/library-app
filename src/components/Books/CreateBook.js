@@ -96,6 +96,7 @@ const CreateBook = ({ setBooks }) => {
 
                 resetValues();
                 setEdit( false );
+                window.alert( `${ title } has been created.` );
             } else {
                 const { error } = await res.json();
                 setError( error );
