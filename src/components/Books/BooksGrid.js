@@ -26,8 +26,6 @@ const BooksGrid = ({ searchValue }) => {
     return (
         <>
             { isLoading && <Loading /> }
-            { !isLoading && books?.length > 0 && <Pagination page={ page } setPage={ setPage } totalPages={ totalPages } /> }
-
 
             { searchValue !=='' && books?.length < 1 && <p className='no-matches'>Your search doesn't match any field 😓</p> }
 
@@ -40,6 +38,8 @@ const BooksGrid = ({ searchValue }) => {
                 }
                 <CreateBook setBooks={ setBooks } />
             </section>
+
+            { !isLoading && books?.length > 0 && <Pagination page={ page } setPage={ setPage } totalPages={ totalPages } /> }
 
         </>
     );
