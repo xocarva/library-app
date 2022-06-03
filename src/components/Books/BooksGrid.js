@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import CreateBook from './CreateBook';
 import './BooksGrid.css';
 
-
 const API_URL = process.env.REACT_APP_API_URL;
 
 const BooksGrid = ({ searchValue }) => {
@@ -39,7 +38,7 @@ const BooksGrid = ({ searchValue }) => {
                 <CreateBook setBooks={ setBooks } />
             </section>
 
-            { !isLoading && books?.length > 0 && <Pagination page={ page } setPage={ setPage } totalPages={ totalPages } /> }
+            { !isLoading && books?.length > perPage && <Pagination page={ page } setPage={ setPage } totalPages={ totalPages } /> }
 
         </>
     );
