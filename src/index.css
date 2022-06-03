@@ -5,21 +5,25 @@
   --dark-background-color: #343148;
   --light-background-color: #c9beb9;
   --cover-text-color:rgb(53, 21, 6);
+  --cover-text-color:#0f0d18;
   --search-bar-font-color: rgba(255, 255, 255, 0.719);
   --search-bar-bg-color: #494750;
-  --tag-color:#697e6b;
-  --button-color:#697e6b;
-  --button-hover-color:#3b633f;
+  --tag-color:#343148;
+  --button-color:#7e7d80;
+  --button-hover-color:#727075;
   --button-text-color: rgb(56, 29, 5);
+  --button-text-color: #222030;
+  --new-book-cover:#b8b8bb;
+  --book-border-color:rgb(85, 49, 8);
   --fantasy-color:#ccd5ae;
-  --sci-fi-color:#dbe1bc;
-  --historical-color:#e9edc9;
-  --biography-color:#fefae0;
-  --comedy-color:#faedcd;
-  --romance-color:#dbcfad;
-  --thriller-color:#e7c8a0;
-  --essay-color:#deb68a;
-  --others-color:#d4a373;
+  --sci-fi-color:#E76F51;
+  --historical-color:#287271;
+  --biography-color:#2A9D8F;
+  --comedy-color:#8AB17D;
+  --romance-color:#BABB74;
+  --thriller-color:#E9C46A;
+  --essay-color:#F4A261;
+  --others-color:#EE8959;
 }
 
 * {

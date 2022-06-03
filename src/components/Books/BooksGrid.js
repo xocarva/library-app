@@ -19,7 +19,7 @@ const BooksGrid = ({ searchValue }) => {
     }, [ data, searchValue ]);
 
     const [ page, setPage ] = useState( 0 );
-    const perPage = 6;
+    const perPage = 5;
     const totalPages = Math.ceil( books?.length / perPage );
 
     return (

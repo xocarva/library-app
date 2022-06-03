@@ -9,9 +9,9 @@
     transform: perspective(2000px);
     box-shadow: 5px 5px 5px rgba(71, 70, 70, 0.618);
     transition: 1s;
-    border: 1px solid rgb(85, 49, 8);
-    border-left: 10px solid rgb(85, 49, 8);
-    background-color: blanchedalmond;
+    border: 1px solid var(--book-border-color);
+    border-left: 10px solid var(--book-border-color);
+    background-color: var(--new-book-cover);
     display: flex;
     justify-content: center;
     align-items:center;
