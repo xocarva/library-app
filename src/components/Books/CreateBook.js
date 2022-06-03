@@ -90,9 +90,9 @@ const CreateBook = ({ setBooks }) => {
                 body: JSON.stringify( body ),
             });
             if( res.ok ) {
-                const { bookId } = await res.json();
+                const { data } = await res.json();
 
-                setBooks( books => [ ...books, { ...body, id:bookId } ] );
+                setBooks( books => [ ...books, { ...body, id:data.bookId } ] );
 
                 resetValues();
                 setEdit( false );
