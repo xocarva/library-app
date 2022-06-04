@@ -47,7 +47,6 @@
     justify-content: space-around;
     align-items: center;
     gap: 1rem;
-    color: var(--cover-text-color);
     overflow: hidden;
 }
 
@@ -151,37 +150,46 @@
 }
 
 .fantasy {
-    background-color: var(--fantasy-color);
+    background-color: var(--fantasy-bg-color);
+    color: var(--fantasy-color);
 }
 
 .sci-fi {
-    background-color: var(--sci-fi-color);
+    background-color: var(--sci-fi-bg-color);
+    color: var(--sci-fi-color);
 }
 
 .thriller {
-    background-color: var(--thriller-color);
+    background-color: var(--thriller-bg-color);
+    color: var(--thriller-color);
 }
 
 .historical {
-    background-color: var(--historical-color);;
+    background-color: var(--historical-bg-color);;
+    color: var(--historical-color);
 }
 
 .romance {
-    background-color: var(--romance-color);;
+    background-color: var(--romance-bg-color);;
+    color: var(--romance-color);
 }
 
 .biography {
-    background-color: var(--biography-color);
+    background-color: var(--biography-bg-color);
+    color: var(--biography-color);
 }
 
 .comedy {
-    background-color: var(--comedy-color);
+    background-color: var(--comedy-bg-color);
+    color: var(--comedy-color);
 }
 
 .essay {
-    background-color: var(--essay-color);
+    background-color: var(--essay-bg-color);
+    color: var(--essay-color);
 }
 
 .others {
-    background-color: var(--others-color);
+    background-color: var(--others-bg-color);
+    color: var(--others-color);
 }
