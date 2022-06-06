@@ -40,7 +40,7 @@ const BooksGrid = ({ searchValue, sortField, sortDir }) => {
                         return <BookGridItem key={ book.id } { ...book } setBooks={ setBooks } />
                         })
                 }
-                <CreateBook setBooks={ setBooks } />
+                { !isLoading && <CreateBook setBooks={ setBooks } /> }
             </section>
 
             { !isLoading && books?.length > perPage && <Pagination page={ page } setPage={ setPage } totalPages={ totalPages } /> }
