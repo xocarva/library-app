@@ -14,7 +14,7 @@
     flex-grow: 1;
     border: none;
     background-color: rgba(211, 211, 211, 0);
-    color: var(--dark-background-color);
+    color: var(--search-bar-font-color);
     font-weight: bold;
 }
 

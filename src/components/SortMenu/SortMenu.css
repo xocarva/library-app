@@ -1,0 +1,32 @@
+.sort-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: var(--dark-background-color);
+    font-size: 1.2rem;
+}
+
+.sort-menu .sort-select {
+    padding: 0.2rem;
+    border-radius: 5px;
+    border: 1px solid var(--dark-background-color);
+    background-color: var(--search-bar-bg-color);
+    color: var(--search-bar-font-color);
+    text-align: center;
+}
+
+.sort-dir {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.sort-dir .sort-dir-icons {
+    cursor: pointer;
+    font-size: 1.5rem;
+    opacity: 0.5;
+}
+
+.sort-dir .selected {
+    opacity: 1;
+}
